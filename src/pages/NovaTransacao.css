@@ -1,0 +1,260 @@
+/* ========================================
+   PÁGINA
+======================================== */
+
+.nova-transacao-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    background: linear-gradient( 135deg, #f8fafc 0%, #eef2ff 100% );
+}
+
+
+/* ========================================
+   CARD
+======================================== */
+
+.nova-transacao-card {
+    width: 100%;
+    max-width: 460px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.10);
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.nova-transacao-header {
+    margin-bottom: 28px;
+}
+
+.nova-transacao-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #6366f1;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.nova-transacao-header h1 {
+    margin: 0 0 8px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.nova-transacao-header p {
+    margin: 0;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   TÍTULO — CASO ESTEJA USANDO H1 DIRETO
+======================================== */
+
+.nova-transacao-card h1 {
+    margin: 0 0 8px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.nova-transacao-subtitle {
+    margin: 0 0 28px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   FORMULÁRIO
+======================================== */
+
+.nova-transacao-form {
+    width: 100%;
+}
+
+
+/* ========================================
+   CAMPOS
+======================================== */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 7px;
+        color: #334155;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        height: 46px;
+        padding: 0 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        background: #ffffff;
+        color: #1e293b;
+        font-family: inherit;
+        font-size: 15px;
+        outline: none;
+        box-sizing: border-box;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+        .form-group input::placeholder {
+            color: #94a3b8;
+        }
+
+
+        /* ========================================
+   FOCO DOS CAMPOS
+======================================== */
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+        }
+
+
+/* ========================================
+   MENSAGEM DE ERRO
+======================================== */
+
+.nova-transacao-error {
+    margin: 0 0 20px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+.nova-transacao-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+
+    /* ========================================
+   ESTILO BASE DOS BOTÕES
+======================================== */
+
+    .nova-transacao-actions .button-cancelar,
+    .nova-transacao-actions .button-salvar {
+        height: 48px;
+        padding: 0 24px;
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+
+    /* ========================================
+   BOTÃO CANCELAR
+======================================== */
+
+    .nova-transacao-actions .button-cancelar {
+        background: #f1f5f9;
+        color: #475569;
+        border: 1px solid #e2e8f0;
+    }
+
+        .nova-transacao-actions .button-cancelar:hover {
+            background: #e2e8f0;
+            color: #1e293b;
+            transform: translateY(-1px);
+        }
+
+
+    /* ========================================
+   BOTÃO SALVAR
+======================================== */
+
+    .nova-transacao-actions .button-salvar {
+        background: #4f46e5;
+        color: #ffffff;
+        border: none;
+    }
+
+        .nova-transacao-actions .button-salvar:hover:not(:disabled) {
+            background: #4338ca;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+        }
+
+        .nova-transacao-actions .button-salvar:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .nova-transacao-page {
+        padding: 20px 15px;
+    }
+
+    .nova-transacao-card {
+        padding: 30px 22px;
+        border-radius: 16px;
+    }
+
+        .nova-transacao-card h1,
+        .nova-transacao-header h1 {
+            font-size: 24px;
+        }
+
+    .nova-transacao-actions {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+        .nova-transacao-actions .button-cancelar,
+        .nova-transacao-actions .button-salvar {
+            width: 100%;
+        }
+}

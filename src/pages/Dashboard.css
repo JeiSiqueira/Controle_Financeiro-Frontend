@@ -1,51 +1,95 @@
 .dashboard {
     min-height: 100vh;
-    background: #f5f7fb;
-    padding: 30px;
+    background: linear-gradient( 135deg, #f8fafc 0%, #eef2ff 100% );
+    padding: 40px;
+    box-sizing: border-box;
 }
 
+
+/* =========================
+   CABEÇALHO
+========================= */
+
 .dashboard-header {
+    max-width: 1200px;
+    margin: 0 auto 30px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    justify-content: space-between;
 }
 
     .dashboard-header h1 {
         margin: 0;
-        color: #1f2937;
+        color: #1e293b;
+        font-size: 28px;
+        font-weight: 700;
     }
 
     .dashboard-header p {
-        margin-top: 6px;
-        color: #6b7280;
+        margin: 8px 0 0;
+        color: #64748b;
+        font-size: 14px;
     }
 
+
+/* =========================
+   ERRO
+========================= */
+
+.dashboard-error {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
 .cards {
+    max-width: 1200px;
+    margin: 0 auto 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin-bottom: 35px;
 }
 
 .card {
-    background: white;
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba( 15, 23, 42, 0.08 );
+    box-sizing: border-box;
 }
 
 .card-title {
-    color: #6b7280;
-    font-size: 14px;
     margin-bottom: 10px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .card-value {
-    font-size: 28px;
-    font-weight: bold;
-    color: #111827;
+    color: #1e293b;
+    font-size: 27px;
+    font-weight: 700;
 }
+
+.card-description {
+    margin-top: 8px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+
+/* CORES DOS CARDS */
 
 .card.receita {
     border-left: 5px solid #22c55e;
@@ -55,67 +99,492 @@
     border-left: 5px solid #ef4444;
 }
 
-.card.saldo {
-    border-left: 5px solid #3b82f6;
+.card.saldo.positivo {
+    border-left: 5px solid #6366f1;
 }
 
-.transacoes {
-    background: white;
-    border-radius: 14px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+.card.saldo.negativo {
+    border-left: 5px solid #ef4444;
 }
 
-    .transacoes h2 {
-        margin-top: 0;
-        color: #1f2937;
+
+/* =========================
+   GRÁFICO
+========================= */
+
+.grafico-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba( 15, 23, 42, 0.08 );
+    box-sizing: border-box;
+    /* MUITO IMPORTANTE */
+    overflow: hidden;
+}
+
+
+/* =========================
+   CABEÇALHO DO GRÁFICO
+========================= */
+
+.grafico-header {
+    margin-bottom: 30px;
+}
+
+    .grafico-header h2 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 20px;
+        font-weight: 700;
     }
 
-    .transacoes table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    .transacoes th,
-    .transacoes td {
-        padding: 14px;
-        text-align: left;
-        border-bottom: 1px solid #e5e7eb;
-    }
-
-    .transacoes th {
-        color: #6b7280;
+    .grafico-header p {
+        margin: 7px 0 0;
+        color: #64748b;
         font-size: 14px;
     }
 
-    .transacoes td {
-        color: #374151;
+
+/* =========================
+   ÁREA DO GRÁFICO
+========================= */
+
+.grafico {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px 10px 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   CADA MÊS
+========================= */
+
+.barra-container {
+    flex: 1;
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.movimentacao-container {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    margin-top: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.movimentacao-header {
+    margin-bottom: 25px;
+}
+
+    .movimentacao-header h2 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 20px;
+        font-weight: 700;
     }
 
-.receita-valor {
+    .movimentacao-header p {
+        margin: 7px 0 0;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+
+
+/* =========================
+   DUAS BARRAS DO MÊS
+========================= */
+
+.barras-mes {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+/* =========================
+   GRUPO DA BARRA
+========================= */
+
+.barra-grupo {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+/* =========================
+   VALOR ACIMA DA BARRA
+========================= */
+
+.barra-valor {
+    width: 100%;
+    min-height: 20px;
+    margin-bottom: 6px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.receita-grafico {
     color: #16a34a;
-    font-weight: bold;
 }
 
-.despesa-valor {
+.despesa-grafico {
     color: #dc2626;
-    font-weight: bold;
 }
 
-@media (max-width: 800px) {
-    .dashboard {
-        padding: 20px;
+
+/* =========================
+   ÁREA DA BARRA
+========================= */
+
+.barra-area {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+/* =========================
+   BARRA
+========================= */
+
+.barra {
+    width: 28px;
+    min-height: 3px;
+    border-radius: 7px 7px 0 0;
+    transition: height 0.3s ease, opacity 0.2s ease;
+}
+
+
+/* RECEITA */
+
+.barra-receita {
+    background: #22c55e;
+}
+
+
+/* DESPESA */
+
+.barra-despesa {
+    background: #ef4444;
+}
+
+
+/* =========================
+   NOME DO MÊS
+========================= */
+
+.barra-label {
+    margin-top: 10px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   LEGENDA
+========================= */
+
+.grafico-legenda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+    .grafico-legenda span {
+        display: flex;
+        align-items: center;
+        gap: 7px;
     }
 
-    .cards {
+    .grafico-legenda i {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        border-radius: 3px;
+    }
+
+.legenda-receita {
+    background: #22c55e;
+}
+
+.legenda-despesa {
+    background: #ef4444;
+}
+
+
+/* =========================
+   GRÁFICO VAZIO
+========================= */
+
+.grafico-vazio {
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #64748b;
+    text-align: center;
+}
+
+    .grafico-vazio p {
+        margin: 0;
+    }
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.movimentacao-conteudo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* =========================
+   GRÁFICO
+========================= */
+
+.grafico-area {
+    min-width: 0;
+}
+
+.grafico {
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px 15px 0;
+    border-bottom: 1px solid #e2e8f0;
+    box-sizing: border-box;
+}
+
+.mes-grafico {
+    flex: 1;
+    height: 100%;
+    max-width: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.barras {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+}
+
+.barra-wrapper {
+    height: 100%;
+    width: 24px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.barra {
+    width: 100%;
+    min-height: 3px;
+    border-radius: 6px 6px 0 0;
+    transition: height 0.3s ease;
+}
+
+.receita-barra {
+    background: #22c55e;
+}
+
+.despesa-barra {
+    background: #ef4444;
+}
+
+.mes-label {
+    margin-top: 10px;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* =========================
+   LEGENDA
+========================= */
+
+.grafico-legenda {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+    .grafico-legenda span {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+.legenda-receita,
+.legenda-despesa {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.legenda-receita {
+    background: #22c55e;
+}
+
+.legenda-despesa {
+    background: #ef4444;
+}
+
+/* =========================
+   VALORES
+========================= */
+
+.valores-mensais {
+    border-left: 1px solid #e2e8f0;
+    padding-left: 25px;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+    .valores-mensais h3 {
+        margin: 0 0 18px;
+        color: #334155;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+.valor-mes {
+    padding: 14px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+    .valor-mes:first-of-type {
+        padding-top: 0;
+    }
+
+    .valor-mes strong {
+        display: block;
+        margin-bottom: 9px;
+        color: #1e293b;
+        font-size: 14px;
+    }
+
+.valor-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.receita-texto span:last-child {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.despesa-texto span:last-child {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+.receita-texto span:first-child,
+.despesa-texto span:first-child {
+    color: #64748b;
+}
+
+/* =========================
+   SEM MOVIMENTAÇÕES
+========================= */
+
+.movimentacao-vazia {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 900px) {
+
+    .movimentacao-conteudo {
         grid-template-columns: 1fr;
     }
 
-    .transacoes {
-        overflow-x: auto;
+    .valores-mensais {
+        border-left: none;
+        border-top: 1px solid #e2e8f0;
+        padding-left: 0;
+        padding-top: 20px;
+        max-height: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .movimentacao-container {
+        padding: 20px;
     }
 
-        .transacoes table {
-            min-width: 650px;
-        }
+    .grafico {
+        gap: 8px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .barra-wrapper {
+        width: 16px;
+    }
+
+    .barras {
+        gap: 4px;
+    }
 }

@@ -1,71 +1,189 @@
 .navbar {
     height: 70px;
-    background: #f8fafc;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 35px;
     margin: 15px 25px;
     border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
     position: sticky;
     top: 15px;
     z-index: 10;
 }
 
+/* =========================
+   LOGO
+   ========================= */
+
 .navbar-logo {
     font-size: 19px;
     font-weight: 700;
-    color: #334155;
+    color: #1e293b;
     cursor: pointer;
 }
 
+/* =========================
+   LINKS
+   ========================= */
+
 .navbar-links {
     display: flex;
-    gap: 8px;
+    align-items: center;
+    gap: 6px;
 }
 
     .navbar-links button {
         border: none;
         background: transparent;
-        padding: 10px 16px;
+        padding: 10px 14px;
         border-radius: 10px;
-        font-size: 15px;
-        font-weight: 600;
         color: #475569;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: background 0.2s ease, color 0.2s ease;
     }
 
         .navbar-links button:hover {
-            background: #e2e8f0;
-            color: #1e293b;
+            background: #eef2ff;
+            color: #4f46e5;
         }
 
+/* =========================
+   USUÁRIO
+   ========================= */
+
 .navbar-user {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    color: #475569;
-    font-weight: 600;
+    position: relative;
 }
 
-.logout-button {
+.user-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     border: none;
-    background: #e2e8f0;
-    color: #475569;
-    padding: 9px 16px;
+    background: transparent;
+    color: #334155;
+    padding: 10px 12px;
     border-radius: 10px;
+    font-family: inherit;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+    .user-button:hover {
+        background: #eef2ff;
+        color: #4f46e5;
+    }
+
+.user-arrow {
+    font-size: 12px;
+    color: #64748b;
+    transition: transform 0.2s ease;
+}
+
+    .user-arrow.aberta {
+        transform: rotate(180deg);
+    }
+
+/* =========================
+   MENU DROPDOWN
+   ========================= */
+
+.user-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 240px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.12);
+    animation: aparecer 0.15s ease;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   INFORMAÇÕES DO USUÁRIO
+   ========================= */
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+}
+
+    .user-info strong {
+        color: #1e293b;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .user-info span {
+        color: #64748b;
+        font-size: 13px;
+        word-break: break-word;
+    }
+
+/* =========================
+   DIVISOR
+   ========================= */
+
+.user-menu-divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 4px 0;
+}
+
+/* =========================
+   SAIR
+   ========================= */
+
+.logout-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: none;
+    background: transparent;
+    color: #dc2626;
+    padding: 10px 12px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
     .logout-button:hover {
-        background: #cbd5e1;
-        color: #1e293b;
+        background: #fef2f2;
+        color: #b91c1c;
     }
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
 
 @media (max-width: 800px) {
 
@@ -80,5 +198,9 @@
 
     .navbar-logo {
         font-size: 17px;
+    }
+
+    .user-menu {
+        right: 0;
     }
 }

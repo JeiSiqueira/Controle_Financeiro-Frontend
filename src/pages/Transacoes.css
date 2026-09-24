@@ -1,0 +1,427 @@
+.transacoes-page {
+    min-height: 100vh;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    background: linear-gradient( 135deg, #f8fafc 0%, #eef2ff 100% );
+}
+
+/* =========================
+   CABEÇALHO
+   ========================= */
+
+.transacoes-header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+}
+
+    .transacoes-header h1 {
+        margin: 0 0 8px;
+        color: #1e293b;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .transacoes-header p {
+        margin: 0;
+        color: #64748b;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+/* =========================
+   CARD DA TABELA
+   ========================= */
+
+.transacoes-card {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.10);
+}
+
+/* =========================
+   TÍTULO DA TABELA
+   ========================= */
+
+.transacoes-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+    .transacoes-card-header h2 {
+        margin: 0;
+        color: #334155;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .transacoes-card-header span {
+        color: #64748b;
+        font-size: 14px;
+    }
+
+/* =========================
+   TABELA
+   ========================= */
+
+.tabela-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+    .tabela-container table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+    /* Cabeçalho */
+
+    .tabela-container th {
+        padding: 14px 16px;
+        text-align: left;
+        background: #f8fafc;
+        color: #334155;
+        font-size: 14px;
+        font-weight: 600;
+        border-bottom: 1px solid #cbd5e1;
+    }
+
+    /* Linhas */
+
+    .tabela-container td {
+        padding: 16px;
+        color: #475569;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* Efeito ao passar o mouse */
+
+    .tabela-container tbody tr {
+        transition: background 0.2s ease;
+    }
+
+        .tabela-container tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        /* Última linha */
+
+        .tabela-container tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+/* =========================
+   TIPO
+   ========================= */
+
+.tipo-receita {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: #f0fdf4;
+    color: #16a34a;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tipo-despesa {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =========================
+   VALORES
+   ========================= */
+
+.valor-receita {
+    color: #16a34a !important;
+    font-weight: 700;
+}
+
+.valor-despesa {
+    color: #dc2626 !important;
+    font-weight: 700;
+}
+
+/* =========================
+   ERRO
+   ========================= */
+
+.transacoes-error {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* =========================
+   SEM TRANSAÇÕES
+   ========================= */
+
+.transacoes-vazio {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+    .transacoes-vazio p {
+        margin: 0;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+/* =========================
+   LISTA DE TRANSAÇÕES
+   ========================= */
+
+.transacoes-lista {
+    width: 100%;
+}
+
+.transacao-item {
+    padding: 22px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+    .transacao-item:last-child {
+        border-bottom: none;
+    }
+
+/* =========================
+   OPÇÕES
+   ========================= */
+
+.transacao-opcoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.transacao-opcoes-titulo {
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.editar-button {
+    border: none;
+    background: #4f46e5;
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .editar-button:hover {
+        background: #4338ca;
+        transform: translateY(-1px);
+    }
+
+.excluir-button {
+    border: none;
+    background: transparent;
+    color: #dc2626;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .excluir-button:hover {
+        background: #fef2f2;
+    }
+
+/* =========================
+   INFORMAÇÕES
+   ========================= */
+
+.transacao-informacoes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.transacao-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.transacao-label {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.transacao-valor {
+    color: #475569;
+    font-size: 14px;
+}
+
+/* =========================
+   TIPO
+   ========================= */
+
+.tipo-receita {
+    display: inline-block;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: #f0fdf4;
+    color: #16a34a;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tipo-despesa {
+    display: inline-block;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =========================
+   VALORES
+   ========================= */
+
+.valor-receita {
+    color: #16a34a !important;
+    font-weight: 700;
+}
+
+.valor-despesa {
+    color: #dc2626 !important;
+    font-weight: 700;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+
+@media (max-width: 800px) {
+
+.transacoes-page {
+    padding: 20px 15px;
+}
+
+.transacoes-card {
+    padding: 18px;
+    border-radius: 16px;
+}
+
+.transacoes-card-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.transacoes-filtro {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+}
+
+    .transacoes-filtro select {
+        width: 100%;
+    }
+
+.transacao-opcoes {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.transacao-informacoes {
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.acoes {
+    width: 100%;
+}
+
+.editar-button,
+.excluir-button {
+    flex: 1;
+}
+
+}
+
+
+/* =========================
+   FILTRO POR MÊS
+========================= */
+
+.transacoes-filtro {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+    .transacoes-filtro label {
+        color: #64748b;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .transacoes-filtro select {
+        min-width: 200px;
+        height: 42px;
+        padding: 0 38px 0 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        background-color: #ffffff;
+        color: #1e293b;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 500;
+        outline: none;
+        cursor: pointer;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .transacoes-filtro select:hover {
+            border-color: #6366f1;
+        }
+
+        .transacoes-filtro select:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+ }

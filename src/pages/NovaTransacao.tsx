@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import "./NovaTransacao.css";
 
 interface Categoria {
     id: number;
@@ -34,7 +35,7 @@ function NovaTransacao() {
 
             setCategorias(response.data.data);
         } catch (error) {
-            console.error("Erro ao carregar categorias:", error);
+            console.error("ERRO AO CARREGAR CATEGORIAS:", error);
             setErro("Não foi possível carregar as categorias.");
         }
     }
@@ -73,6 +74,9 @@ function NovaTransacao() {
 
                 await carregarCategorias();
             }
+
+            console.log("Categoria selecionada:", categoriaSelecionadaId);
+            console.log("Categorias disponíveis:", categorias);
 
             await api.post("/Transacoes", {
                 descricao,
@@ -113,131 +117,174 @@ function NovaTransacao() {
     }
 
     return (
-        <div>
-            <h1>Nova Transação</h1>
+        <div className="nova-transacao-page">
 
-            {erro && <p>{erro}</p>}
+            <div className="nova-transacao-card">
 
-            <form onSubmit={salvarTransacao}>
+                <h1>Nova transação</h1>
 
-                <div>
-                    <label>Descrição</label>
+                <p className="nova-transacao-subtitle">
+                    Registre uma nova receita ou despesa.
+                </p>
 
-                    <input
-                        type="text"
-                        value={descricao}
-                        onChange={(event) =>
-                            setDescricao(event.target.value)
-                        }
-                    />
-                </div>
+                {erro && (
+                    <p className="nova-transacao-error">
+                        {erro}
+                    </p>
+                )}
 
-                <div>
-                    <label>Valor</label>
+                <form onSubmit={salvarTransacao}>
 
-                    <input
-                        type="number"
-                        step="0.01"
-                        value={valor}
-                        onChange={(event) =>
-                            setValor(event.target.value)
-                        }
-                    />
-                </div>
+                    <div className="form-group">
 
-                <div>
-                    <label>Data</label>
+                        <label>Descrição</label>
 
-                    <input
-                        type="date"
-                        value={data}
-                        onChange={(event) =>
-                            setData(event.target.value)
-                        }
-                    />
-                </div>
+                        <input
+                            type="text"
+                            value={descricao}
+                            onChange={(event) =>
+                                setDescricao(event.target.value)
+                            }
+                            placeholder="Digite a descrição"
+                        />
 
-                <div>
-                    <label>Tipo</label>
+                    </div>
 
-                    <select
-                        value={tipo}
-                        onChange={(event) =>
-                            setTipo(event.target.value)
-                        }
-                    >
-                        <option value="Despesa">
-                            Despesa
-                        </option>
+                    <div className="form-group">
 
-                        <option value="Receita">
-                            Receita
-                        </option>
-                    </select>
-                </div>
+                        <label>Valor</label>
 
-                <div>
-                    <label>Categoria</label>
+                        <input
+                            type="number"
+                            step="0.01"
+                            value={valor}
+                            onChange={(event) =>
+                                setValor(event.target.value)
+                            }
+                            placeholder="Digite o valor"
+                        />
 
-                    <select
-                        value={criarCategoria ? "nova" : categoriaId}
-                        onChange={(event) =>
-                            selecionarCategoria(event.target.value)
-                        }
-                    >
-                        <option value="">
-                            Selecione uma categoria
-                        </option>
+                    </div>
 
-                        {categorias.map((categoria) => (
-                            <option
-                                key={categoria.id}
-                                value={categoria.id}
-                            >
-                                {categoria.nome}
+                    <div className="form-group">
+
+                        <label>Data</label>
+
+                        <input
+                            type="date"
+                            value={data}
+                            onChange={(event) =>
+                                setData(event.target.value)
+                            }
+                        />
+
+                    </div>
+
+                    <div className="form-group">
+
+                        <label>Tipo</label>
+
+                        <select
+                            value={tipo}
+                            onChange={(event) =>
+                                setTipo(event.target.value)
+                            }
+                        >
+                            <option value="Despesa">
+                                Despesa
                             </option>
-                        ))}
 
-                        <option value="nova">
-                            + Criar nova categoria
-                        </option>
-                    </select>
+                            <option value="Receita">
+                                Receita
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div className="form-group">
+
+                        <label>Categoria</label>
+
+                        <select
+                            value={
+                                criarCategoria
+                                    ? "nova"
+                                    : categoriaId
+                            }
+                            onChange={(event) =>
+                                selecionarCategoria(
+                                    event.target.value
+                                )
+                            }
+                        >
+                            <option value="">
+                                Selecione uma categoria
+                            </option>
+
+                            {categorias.map((categoria) => (
+                                <option
+                                    key={categoria.id}
+                                    value={categoria.id}
+                                >
+                                    {categoria.nome}
+                                </option>
+                            ))}
+
+                            <option value="nova">
+                                + Criar nova categoria
+                            </option>
+                        </select>
+
+                    </div>
 
                     {criarCategoria && (
-                        <div>
+                        <div className="form-group">
+
                             <label>Nova categoria</label>
 
                             <input
                                 type="text"
                                 value={novaCategoria}
                                 onChange={(event) =>
-                                    setNovaCategoria(event.target.value)
+                                    setNovaCategoria(
+                                        event.target.value
+                                    )
                                 }
                                 placeholder="Digite o nome da categoria"
                             />
+
                         </div>
                     )}
-                </div>
 
-                <button
-                    type="submit"
-                    disabled={salvando}
-                >
-                    {salvando
-                        ? "Salvando..."
-                        : "Salvar"}
-                </button>
+                    <div className="nova-transacao-actions">
 
-                <button
-                    type="button"
-                    onClick={() => navigate("/dashboard")}
-                >
-                    Cancelar
-                </button>
+                        <button
+                            type="submit"
+                            className="salvar-button"
+                            disabled={salvando}
+                        >
+                            {salvando
+                                ? "Salvando..."
+                                : "Salvar transação"}
+                        </button>
 
-            </form>
+                        <button
+                            type="button"
+                            className="cancelar-button"
+                            onClick={() =>
+                                navigate("/dashboard")
+                            }
+                        >
+                            Cancelar
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
-    );
-}
+   )};
 
-export default NovaTransacao;
+    export default NovaTransacao;

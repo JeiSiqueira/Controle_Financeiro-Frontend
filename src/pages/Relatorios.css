@@ -1,0 +1,489 @@
+/* =========================
+   PÁGINA
+========================= */
+.relatorios {
+    min-height: 100vh;
+    background: linear-gradient( 135deg, #f8fafc 0%, #eef2ff 100% );
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.relatorios-header {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .relatorios-header h1 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .relatorios-header p {
+        margin: 8px 0 0;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+
+/* =========================
+   FILTROS
+========================= */
+
+.relatorio-filtros {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    box-sizing: border-box;
+}
+
+.filtros-header {
+    margin-bottom: 25px;
+}
+
+    .filtros-header h2 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .filtros-header p {
+        margin: 7px 0 0;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+
+/* =========================
+   CAMPOS
+========================= */
+
+.filtros-conteudo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    gap: 20px;
+    align-items: end;
+}
+
+.campo-data {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+    .campo-data label {
+        color: #334155;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .campo-data input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        background: #ffffff;
+        color: #334155;
+        font-size: 14px;
+        outline: none;
+        box-sizing: border-box;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .campo-data input:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+        }
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.filtros-acoes {
+    display: flex;
+    gap: 10px;
+}
+
+    .filtros-acoes button {
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .filtros-acoes button:hover:not(:disabled) {
+            transform: translateY(-1px);
+        }
+
+        .filtros-acoes button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+.botao-gerar {
+    background: #6366f1;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.20);
+}
+
+    .botao-gerar:hover:not(:disabled) {
+        box-shadow: 0 7px 18px rgba(99, 102, 241, 0.28);
+    }
+
+.botao-excel {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0 !important;
+}
+
+    .botao-excel:hover:not(:disabled) {
+        background: #e2e8f0;
+    }
+
+
+/* =========================
+   ERRO
+========================= */
+
+.relatorios-error {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.relatorio-cards {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.relatorio-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    box-sizing: border-box;
+}
+
+.relatorio-card-title {
+    margin-bottom: 10px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.relatorio-card-value {
+    color: #1e293b;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.relatorio-card-description {
+    margin-top: 8px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+
+/* =========================
+   CORES DOS CARDS
+========================= */
+
+.relatorio-card.receita {
+    border-left: 5px solid #22c55e;
+}
+
+.relatorio-card.despesa {
+    border-left: 5px solid #ef4444;
+}
+
+.relatorio-card.saldo.positivo {
+    border-left: 5px solid #6366f1;
+}
+
+.relatorio-card.saldo.negativo {
+    border-left: 5px solid #ef4444;
+}
+
+
+/* =========================
+   CONTAINER DAS TABELAS
+========================= */
+
+.relatorio-container {
+    max-width: 1200px;
+    margin: 0 auto 25px;
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* =========================
+   CABEÇALHO DA SEÇÃO
+========================= */
+
+.relatorio-section-header {
+    margin-bottom: 25px;
+}
+
+    .relatorio-section-header h2 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .relatorio-section-header p {
+        margin: 7px 0 0;
+        color: #64748b;
+        font-size: 14px;
+    }
+
+
+/* =========================
+   TABELA
+========================= */
+
+.tabela-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.relatorio-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+    .relatorio-tabela th {
+        padding: 14px 16px;
+        background: #f8fafc;
+        border-bottom: 1px solid #e2e8f0;
+        color: #475569;
+        font-size: 13px;
+        font-weight: 700;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .relatorio-tabela td {
+        padding: 15px 16px;
+        border-bottom: 1px solid #f1f5f9;
+        color: #475569;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .relatorio-tabela tbody tr {
+        transition: background 0.15s ease;
+    }
+
+        .relatorio-tabela tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        .relatorio-tabela tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+
+/* =========================
+   COLUNAS
+========================= */
+
+.mes-coluna {
+    color: #334155 !important;
+    font-weight: 600;
+}
+
+.descricao-coluna {
+    color: #334155 !important;
+    font-weight: 600;
+}
+
+
+/* =========================
+   VALORES
+========================= */
+
+.valor-receita {
+    color: #16a34a !important;
+    font-weight: 700;
+}
+
+.valor-despesa {
+    color: #dc2626 !important;
+    font-weight: 700;
+}
+
+.valor-positivo {
+    color: #16a34a !important;
+    font-weight: 700;
+}
+
+.valor-negativo {
+    color: #dc2626 !important;
+    font-weight: 700;
+}
+
+
+/* =========================
+   SITUAÇÃO
+========================= */
+
+.situacao {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.situacao-lucro {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.situacao-prejuizo {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.situacao-equilibrio {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+
+/* =========================
+   TIPO
+========================= */
+
+.tipo {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.tipo-receita {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.tipo-despesa {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================
+   VAZIO
+========================= */
+
+.relatorio-vazio {
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 900px) {
+
+    .filtros-conteudo {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filtros-acoes {
+        grid-column: 1 / -1;
+    }
+
+    .relatorio-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .relatorios {
+        padding: 20px;
+    }
+
+    .relatorios-header h1 {
+        font-size: 24px;
+    }
+
+    .relatorio-filtros,
+    .relatorio-container {
+        padding: 20px;
+    }
+
+    .filtros-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .filtros-acoes {
+        grid-column: auto;
+        flex-direction: column;
+    }
+
+        .filtros-acoes button {
+            width: 100%;
+        }
+
+    .relatorio-card {
+        padding: 20px;
+    }
+
+    .relatorio-card-value {
+        font-size: 24px;
+    }
+}
+
