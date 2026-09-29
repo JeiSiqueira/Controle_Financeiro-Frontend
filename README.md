@@ -1,30 +1,62 @@
 # Controle Financeiro — Frontend
 
-Frontend da aplicação **Controle Financeiro**, desenvolvido para gerenciamento de receitas, despesas e categorias.
+Frontend da aplicação **Controle Financeiro**, desenvolvido com **React e TypeScript** para gerenciamento de receitas e despesas pessoais.
 
-O projeto foi desenvolvido como parte do meu portfólio para colocar em prática conhecimentos de desenvolvimento frontend, integração com APIs REST, autenticação e construção de interfaces com React e TypeScript.
+O projeto faz parte do meu portfólio de desenvolvimento e foi construído com foco em integração com API REST, autenticação, organização de componentes, gerenciamento de rotas e construção de uma interface moderna e responsiva.
 
 ## Sobre o projeto
 
-A aplicação permite que usuários autenticados gerenciem suas movimentações financeiras através de uma interface web integrada à API do projeto.
+A aplicação permite que usuários autenticados acompanhem e gerenciem suas movimentações financeiras através de uma interface web integrada à API desenvolvida em **C# e .NET 10**.
 
-O frontend se comunica com uma API desenvolvida em **C# e ASP.NET Core**, utilizando autenticação baseada em **JWT**.
+A comunicação entre frontend e backend é realizada através de requisições HTTP utilizando **Axios**, com autenticação baseada em **JWT**.
 
-### Principais funcionalidades
+## Principais funcionalidades
 
-* Cadastro e login de usuários
+### Autenticação
+
+* Cadastro de usuários
+* Login
 * Autenticação utilizando JWT
-* Proteção de rotas
-* Dashboard financeiro
-* Visualização de receitas
-* Visualização de despesas
+* Armazenamento da sessão no navegador
+* Proteção das requisições autenticadas
+
+### Dashboard
+
+* Visualização do total de receitas
+* Visualização do total de despesas
 * Visualização do saldo
-* Cadastro de novas transações
-* Edição e exclusão de transações
-* Listagem de categorias
-* Criação de categorias durante o cadastro de uma transação
-* Integração com API REST
-* Tratamento de erros nas requisições
+* Resumo financeiro
+* Gráfico de movimentações
+* Visualização das movimentações recentes
+
+### Transações
+
+* Cadastro de receitas e despesas
+* Edição de transações
+* Exclusão de transações
+* Listagem de transações
+* Visualização de categoria, data, tipo e valor
+* Filtro de transações por mês
+* Identificação visual entre receitas e despesas
+
+### Relatórios
+
+* Seleção de período para geração do relatório
+* Visualização do total de receitas
+* Visualização do total de despesas
+* Visualização do saldo
+* Resumo financeiro mensal
+* Detalhamento das transações
+* Exportação do relatório para Excel
+
+### Interface
+
+* Interface desenvolvida com React e CSS
+* Layout responsivo
+* Navegação através de React Router
+* Feedback visual para erros
+* Organização das páginas e componentes
+* Interface adaptada para diferentes tamanhos de tela
 
 ## Tecnologias utilizadas
 
@@ -35,6 +67,7 @@ O frontend se comunica com uma API desenvolvida em **C# e ASP.NET Core**, utiliz
 * React Router
 * CSS
 * HTML
+* Git / GitHub
 
 ## Estrutura do projeto
 
@@ -47,20 +80,31 @@ frontend/
 │   ├── assets/
 │   │
 │   ├── components/
-│   │   └── Navbar.tsx
+│   │   ├── Navbar.tsx
+│   │   └── Navbar.css
 │   │
 │   ├── pages/
+│   │   ├── Cadastro.tsx
+│   │   ├── Cadastro.css
 │   │   ├── Dashboard.tsx
+│   │   ├── Dashboard.css
+│   │   ├── EditarTransacao.tsx
 │   │   ├── Login.tsx
-│   │   ├── Me.tsx
-│   │   └── NovaTransacao.tsx
+│   │   ├── Login.css
+│   │   ├── NovaTransacao.tsx
+│   │   ├── NovaTransacao.css
+│   │   ├── Relatorios.tsx
+│   │   ├── Relatorios.css
+│   │   ├── Transacoes.tsx
+│   │   └── Transacoes.css
 │   │
 │   ├── services/
-│   │   └── api.ts
+│   │   ├── api.ts
+│   │   └── relatorioService.ts
 │   │
 │   ├── App.tsx
 │   ├── App.css
-│   └── main.tsx
+│   └── index.css
 │
 ├── package.json
 ├── package-lock.json
@@ -72,56 +116,54 @@ frontend/
 
 O frontend utiliza **Axios** para realizar as requisições à API.
 
-As principais operações incluem:
+Entre as principais operações estão:
 
-```text
+```http
 POST   /api/Auth/register
 POST   /api/Auth/login
 GET    /api/Auth/me
 
 GET    /api/Transacoes
+GET    /api/Transacoes/{id}
 POST   /api/Transacoes
-PUT    /api/Transacoes
+PUT    /api/Transacoes/{id}
 DELETE /api/Transacoes/{id}
 
-GET    /api/Categorias
-POST   /api/Categorias
+GET    /api/Relatorios
+GET    /api/Relatorios/exportar
 ```
 
-Após o login, o token JWT é armazenado no navegador e utilizado nas requisições que exigem autenticação.
+Após o login, o token JWT é armazenado no navegador e enviado nas requisições que exigem autenticação.
 
 ## Como executar o projeto
 
 ### Pré-requisitos
 
-Antes de executar o projeto, é necessário ter instalado:
+Antes de executar o projeto, tenha instalado:
 
 * Node.js
 * npm
+* Git
 
-### Instalação
-
-Clone o repositório:
+### 1. Clone o repositório
 
 ```bash
 git clone https://github.com/JeiSiqueira/Controle_Financeiro-Frontend.git
 ```
 
-Entre na pasta:
+### 2. Entre na pasta
 
 ```bash
 cd Controle_Financeiro-Frontend
 ```
 
-Instale as dependências:
+### 3. Instale as dependências
 
 ```bash
 npm install
 ```
 
-### Executando o projeto
-
-Execute:
+### 4. Execute o projeto
 
 ```bash
 npm run dev
@@ -140,13 +182,13 @@ Este frontend depende da API do projeto **Controle Financeiro**.
 O backend foi desenvolvido utilizando:
 
 * C#
-* .NET 8
+* .NET 10
 * ASP.NET Core Web API
 * Entity Framework Core
 * MySQL
 * JWT
-* BCrypt
-* Swagger
+* Swagger / OpenAPI
+* ClosedXML
 
 Repositório do backend:
 
@@ -154,31 +196,20 @@ https://github.com/JeiSiqueira/Controle_Financeiro
 
 ## Objetivo do projeto
 
-Este projeto faz parte do meu portfólio de desenvolvimento e tem como objetivo demonstrar, na prática, conhecimentos em:
+Este projeto foi desenvolvido para colocar em prática conhecimentos em desenvolvimento web e construção de aplicações completas, envolvendo frontend, backend e banco de dados.
 
-* Desenvolvimento frontend
-* React e TypeScript
+Entre os principais conhecimentos aplicados estão:
+
+* Desenvolvimento com React
+* TypeScript
 * Consumo de APIs REST
 * Autenticação JWT
-* Gerenciamento de estado
-* Rotas protegidas
-* Integração frontend e backend
-* Organização de projetos
+* React Router
+* Axios
+* Gerenciamento de estado com React Hooks
+* Desenvolvimento de interfaces responsivas
+* Organização de componentes e páginas
+* Integração entre frontend e backend
 * Git e GitHub
 
-## Próximos passos
-
-Algumas melhorias planejadas para o projeto:
-
-* Melhorar a experiência visual da aplicação
-* Tornar a interface totalmente responsiva
-* Adicionar filtros de transações
-* Adicionar gráficos financeiros
-* Melhorar feedbacks de sucesso e erro
-* Adicionar tela de cadastro de usuário
-* Melhorar validações dos formulários
-
----
-
-Desenvolvido por **Jeimili Siqueira**.
-
+Desenvolvido por **Jeimili Siqueira Mendes**.
