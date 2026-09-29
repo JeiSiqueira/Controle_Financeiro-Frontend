@@ -58,6 +58,20 @@ A comunicação entre frontend e backend é realizada através de requisições 
 * Organização das páginas e componentes
 * Interface adaptada para diferentes tamanhos de tela
 
+## Interface da aplicação
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Transações
+
+![Transações](screenshots/transacao.png)
+
+### Relatórios
+
+![Relatórios](screenshots/relatorio.png)
+
 ## Tecnologias utilizadas
 
 * React
@@ -105,6 +119,11 @@ frontend/
 │   ├── App.tsx
 │   ├── App.css
 │   └── index.css
+│
+├── screenshots/
+│   ├── dashboard.png
+│   ├── transacao.png
+│   └── relatorio.png
 │
 ├── package.json
 ├── package-lock.json
@@ -190,9 +209,7 @@ O backend foi desenvolvido utilizando:
 * Swagger / OpenAPI
 * ClosedXML
 
-Repositório do backend:
-
-https://github.com/JeiSiqueira/Controle_Financeiro
+[Repositório do Backend](https://github.com/JeiSiqueira/Controle_Financeiro)
 
 ## Objetivo do projeto
 
